@@ -1,19 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Title from '@src/Title';
+import Router from '@src/router';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <div>可视化简历平台</div>
-          <div>这是 Electron + React </div>
-          <Title text="wuxuwei"/>
-        </Route>
-      </Switch>
-    </Router>
+    <div>
+      <Router />
+    </div>
   );
 }
 
