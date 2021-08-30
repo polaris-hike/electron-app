@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from '@src/router';
+import Router from './router';
+
+// 👇 引入 store
+import store from './store';
+
+// 引入 Provider
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Router />
-    </div>
+    </Provider>
   );
 }
 

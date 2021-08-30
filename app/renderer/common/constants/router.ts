@@ -10,8 +10,8 @@ export const ROUTER_KEY = {
   resume: 'resume',
 };
 
-// 入口模块，TS 定义类型必须为 TSRouter.Item
-export const ROUTER_ENTRY: TSRouter.Item[] = [
+// 入口模块
+export const ROUTER_ENTRY = [
   {
     url: 'https://github.com/PDKSophia/visResumeMook',
     key: 'intro',

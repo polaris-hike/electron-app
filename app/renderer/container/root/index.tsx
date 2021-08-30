@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useHistory } from 'react-router';
 import { shell } from 'electron';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from '@assets/logo.jpg';
 import { ROUTER_ENTRY, ROUTER_KEY } from '@common/constants/router';
 import { isHttpOrHttpsUrl } from '@common/utils/router';
 import './index.less';
 
 function Root() {
+  const dispatch = useDispatch();
+  const appName = useSelector((state: any) => state.globalModel.appName);
+
+  useEffect(() => {
+    console.log('appName = ', appName);
+  }, [appName]);
   const history = useHistory();
 
   const onRouterToLink = (router: TSRouter.Item) => {
