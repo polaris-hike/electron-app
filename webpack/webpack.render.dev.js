@@ -1,7 +1,7 @@
 const path = require('path');
 const webpackMerge = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base.js');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const devConfig = {
   mode: 'development',
@@ -22,14 +22,6 @@ const devConfig = {
     port: 7001, // 启动端口为 7001 的服务
     hot: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      // 👇 以此文件为模版，自动生成 HTML
-      template: path.resolve(__dirname, '../app/renderer/index.html'),
-      filename: path.resolve(__dirname, '../dist/index.html'),
-      chunks: ['index'],
-    }),
-  ],
   module: {
     rules: [
       {
@@ -54,7 +46,15 @@ const devConfig = {
         ],
       },
     ],
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      // 👇 以此文件为模版，自动生成 HTML
+      template: path.resolve(__dirname, '../app/renderer/index.html'),
+      filename: path.resolve(__dirname, '../dist/index.html'),
+      chunks: ['index'],
+    }),
+  ],
 };
 
 module.exports = webpackMerge.merge(baseConfig, devConfig);
